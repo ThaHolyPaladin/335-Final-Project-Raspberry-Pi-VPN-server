@@ -1,0 +1,32 @@
+# Things you will need in order to create a VPN service on your Raspverry Pi
+
+1. Raspberry Pi 
+  Power Supply
+  SD card with or without OS *if it is without you will have to install it*
+  Keyboard and Mouse, but you can dial in through ssh if you only have 1 pair
+  1 Monitor
+  
+2. Recomendation:
+  Dynamic DNS Service to point to the public ip address at home so you dont have to re configure the VPN everytime
+  Check router to see if it supoorts it
+  
+3. Installing OpenVPN with PiVPN
+  curl -L https://install.pivpn.io | bash
+
+ The default settings are okay to use
+ UDP or TDP you should choose UDP unless you are specifically using it for something else
+ what port you want to use (1194 is okay unless it is already being used)
+ what DNS provider you want to use (any are suitable)
+ once doing going through the settings you will have to reboot and then open up with 
+ 
+ pivpn add (name of file Example - Michaels Laptop)
+ 
+ Set how many days the certificate lasts (the default value is fine)
+ Enter a password 
+ It'll generate an .ovpn file for you under /home/pi/ovpns, which you'll need to connect to your VPN—copy
+
+4. Forward your VPN's port on your router
+  Log into your router's configuration page, 
+  Find the port forwarding option,
+  Forward port 1194 to the internal IP address of your Pi. 
+  "You can find more detailed instructions for specific routers at portforward.com"
